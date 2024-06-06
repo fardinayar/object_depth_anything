@@ -5,3 +5,13 @@ __pycache__
 *.npz
 kitti_data
 models
+*.png
+*.jpg
+coco8
+*.csv
+*.pt
+*.pth
+assets
+*.npy
+*.gif
+*.bin
