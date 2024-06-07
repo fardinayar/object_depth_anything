@@ -68,7 +68,7 @@ class ObjectDepthEstimation:
         self.object_detection_model = get_yolo_model()
         self.opts = options
         self.root_path = self.opts.image_folder
-        self.imagesList = os.listdir(self.root_path)
+        self.imagesList = sorted(os.listdir(self.root_path))
 
     
     def add_depth_to_results(self, results, depth, image_name=None):
@@ -101,10 +101,11 @@ class ObjectDepthEstimation:
             results =  self.object_detection_model(image,verbose=False)
             depth = self.depth_model(image)
             output_image, results = self.add_depth_to_results(results[0].to('cpu').numpy(), depth, image_name)
-            output_images.append(output_image)
+            normalized_depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255
+            output_images.append(np.vstack([output_image, np.concatenate([normalized_depth[:,:,None],]*3, axis=-1)]).astype('uint8'))
             all_results.append(results)
         if self.opts.output_type == 'video':
-            imageio.mimsave('movie.gif', output_images)
+            imageio.mimsave('demo.gif', output_images[:100])
         if self.opts.output_type == 'csv':
             self.save_csv(all_results)
             

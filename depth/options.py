@@ -208,12 +208,12 @@ class MonodepthOptions:
         self.parser.add_argument("--image_folder",
                         type=str,
                         help="path to the folder containing images to infer object depth estimation",
-                        default="depth/kitti_data/2011_09_26/2011_09_26_drive_0001_sync/image_02/data/")
+                        default="depth/kitti_data/2011_09_30/2011_09_30_drive_0027_sync/image_02/data/")
     
         self.parser.add_argument("--output_type",
                         type=str,
                         help="video or csv",
-                        default="csv",
+                        default="video",
                         choices=["video", "csv"])
 
     def parse(self):

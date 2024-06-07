@@ -11,6 +11,7 @@ coco8
 *.csv
 *.pt
 *.pth
+!mono_weights/*.pth
 assets
 *.npy
 *.gif
