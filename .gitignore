@@ -14,5 +14,4 @@ coco8
 !mono_weights/*.pth
 assets
 *.npy
-*.gif
 *.bin
