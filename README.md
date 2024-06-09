@@ -32,6 +32,6 @@ There are many things to do, but for now, we have provided a trained model on th
 ### TODO
 
 - [ ] Add code for training the depth estimation model on custom dataset
-- [ ] Calculate distance instead of depth
+
 - [ ] Evaluate the depth model only in object regions
 - [ ] Add more inference settings
